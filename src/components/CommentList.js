@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 function CommentList() {
   const test = useSelector((store) => store.comment);
-  console.log("test", test);
+  //console.log("test", test);
 
   return test.map((comment, key) => (
     <Comment key={key}>
