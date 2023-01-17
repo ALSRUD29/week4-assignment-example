@@ -1,6 +1,6 @@
 import axios from "axios";
-//액션 타입 정의
 
+//액션 타입 정의
 //crud 필요
 const CREATE_COMMENT = "comments/CREATE_COMMENT";
 const DELETE_COMMENT = "comments/DELETE_COMMENT";

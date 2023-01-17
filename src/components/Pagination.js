@@ -1,6 +1,9 @@
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 function Pagination({ length, limit, page, setPage }) {
+  const dispatch = useDispatch();
+
   return (
     <>
       <Nav>
@@ -10,6 +13,7 @@ function Pagination({ length, limit, page, setPage }) {
             <Button
               key={i + 1}
               onClick={() => setPage(i + 1)}
+              //   onClick={() => dispatch(currentPage(i))}
               aria-current={page === i + 1 ? "page" : null}
             >
               {i + 1}

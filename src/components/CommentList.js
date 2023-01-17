@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 //import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+// import { useSelector } from "react-redux";
 import Comment from "./Comment";
 import Pagination from "./Pagination";
 
@@ -14,6 +15,7 @@ function CommentList() {
   const [data, setData] = useState([]);
   const [length, setLength] = useState("");
 
+  // const page = useSelector((store) => store.pagination);
   useEffect(() => {
     axios
       .get(
@@ -21,9 +23,10 @@ function CommentList() {
       )
       .then((res) => {
         // console.log(res.data);
+
         setData(res.data);
       });
-  }, [data, limit, page]);
+  }, [limit, page, setData, data]);
 
   useEffect(() => {
     axios.get(`http://localhost:4000/comments`).then((res) => {
@@ -37,7 +40,7 @@ function CommentList() {
       {data.map((comment) => (
         <Comment comment={comment} key={comment.id} />
       ))}
-
+      <div> {page}</div>
       <Pagination length={length} limit={limit} page={page} setPage={setPage} />
     </>
   );

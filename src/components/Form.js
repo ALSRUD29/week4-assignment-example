@@ -16,14 +16,7 @@ function Form() {
     e.preventDefault();
     const actionObj = createComment(profileUrl, author, content, createdAt);
     dispatch(actionObj);
-    // axios
-    //   .post(`http://localhost:4000/comments`, {
-    //     profileUrl,
-    //     author,
-    //     content,
-    //     createdAt,
-    //   })
-    //   .then((res) => console.log(res.data));
+
 
     setProfileUrl("");
     setAuthor("");
