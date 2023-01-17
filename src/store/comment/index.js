@@ -2,9 +2,10 @@
 
 //crud 필요
 const CREATE_COMMENT = "comments/CREATE_COMMENT";
+const DELETE_COMMENT = "comments/DELETE_COMMENT";
 
 //액션 크리에이터 생성
-let nextId = 1;
+let nextId = 2;
 const createComment = (profile_url, author, content, createdAt) => ({
   type: CREATE_COMMENT,
   comment: {
@@ -15,6 +16,8 @@ const createComment = (profile_url, author, content, createdAt) => ({
     createdAt,
   },
 });
+
+const deleteComment = (id) => ({ type: DELETE_COMMENT, id });
 
 //초기상태 선언
 
@@ -35,11 +38,12 @@ const commentReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_COMMENT:
       return state.concat(action.comment);
-
+    case DELETE_COMMENT:
+      return [...state.filter((comment) => comment.id !== action.id)];
     default:
       return state;
   }
 };
 
-export { createComment };
+export { createComment, deleteComment };
 export default commentReducer;

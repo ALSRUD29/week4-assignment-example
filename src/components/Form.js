@@ -10,11 +10,16 @@ function Form() {
   const [createdAt, setCreatedAt] = useState("");
 
   const dispatch = useDispatch();
+  const comments = useSelector((store) => store.comment);
 
   const onCreateComment = (e) => {
     e.preventDefault();
     const actionObj = createComment(profileUrl, author, content, createdAt);
     dispatch(actionObj);
+    setProfileUrl("");
+    setAuthor("");
+    setContent("");
+    setCreatedAt("");
   };
 
   return (

@@ -1,26 +1,31 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { deleteComment } from "../store/comment";
 
 // 임시 데이터 입니다. 코드 작성시 data 부분을 지워주세요
 
 function CommentList() {
-  const test = useSelector((store) => store.comment);
+  const comments = useSelector((store) => store.comment);
   //console.log("test", test);
+  const dispatch = useDispatch();
 
-  return test.map((comment, key) => (
+  return comments.map((comment, key) => (
     <Comment key={key}>
       <img src={comment.profile_url} alt="" />
-
       {comment.author}
-
       <CreatedAt>{comment.createdAt}</CreatedAt>
-
       <Content>{comment.content}</Content>
 
       <Button>
-        <a>수정</a>
-        <a>삭제</a>
+        <span>수정</span>
+        <span
+          onClick={() => {
+            dispatch(deleteComment(comment.id));
+          }}
+        >
+          삭제
+        </span>
       </Button>
 
       <hr />
@@ -55,7 +60,7 @@ const Content = styled.div`
 const Button = styled.div`
   text-align: right;
   margin: 10px 0;
-  & > a {
+  & > span {
     margin-right: 10px;
     padding: 0.375rem 0.75rem;
     border-radius: 0.25rem;
