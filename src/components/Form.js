@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { createComment } from "../store/comment/index";
 
@@ -10,7 +10,6 @@ function Form() {
   const [createdAt, setCreatedAt] = useState("");
 
   const dispatch = useDispatch();
-  const comments = useSelector((store) => store.comment);
 
   const onCreateComment = (e) => {
     e.preventDefault();
