@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { createComment } from "../store/comment/index";
+// import axios from "axios";
 
 function Form() {
   const [profileUrl, setProfileUrl] = useState("");
@@ -15,6 +16,15 @@ function Form() {
     e.preventDefault();
     const actionObj = createComment(profileUrl, author, content, createdAt);
     dispatch(actionObj);
+    // axios
+    //   .post(`http://localhost:4000/comments`, {
+    //     profileUrl,
+    //     author,
+    //     content,
+    //     createdAt,
+    //   })
+    //   .then((res) => console.log(res.data));
+
     setProfileUrl("");
     setAuthor("");
     setContent("");
@@ -66,7 +76,6 @@ function Form() {
           value={createdAt}
         />
         <br />
-        {/* onSubmit으로는 리덕스로 전달이 안되는 이유를 모르겠다 */}
         <button onClick={onCreateComment}>등록</button>
       </form>
     </FormStyle>

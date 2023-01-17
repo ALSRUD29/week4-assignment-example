@@ -3,12 +3,12 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { deleteComment, updateComment } from "../store/comment";
 
-const Comment = ({ comment, key }) => {
+const Comment = ({ comment }) => {
   const dispatch = useDispatch();
   const [updateMode, setUpdateMode] = useState(false);
   const [newContentInput, setNewContentInput] = useState(comment.content);
   return (
-    <StyledComment key={key}>
+    <StyledComment>
       <img src={comment.profile_url} alt="" />
       {comment.author}
       <CreatedAt>{comment.createdAt}</CreatedAt>

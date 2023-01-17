@@ -1,3 +1,4 @@
+import axios from "axios";
 //액션 타입 정의
 
 //crud 필요
@@ -6,11 +7,9 @@ const DELETE_COMMENT = "comments/DELETE_COMMENT";
 const UPDATE_COMMENT = "comments/UPDATE_COMMENT";
 
 //액션 크리에이터 생성
-let nextId = 2;
 const createComment = (profile_url, author, content, createdAt) => ({
   type: CREATE_COMMENT,
   payload: {
-    id: nextId++,
     profile_url,
     author,
     content,
@@ -58,7 +57,9 @@ const initialState = {
 const commentReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_COMMENT:
-      return { ...state, comments: state.comments.concat(action.payload) };
+      return axios.post(`http://localhost:4000/comments`, {
+        ...action.payload,
+      });
 
     case DELETE_COMMENT:
       //return [...state.filter((comment) => comment.id !== action.id)];
