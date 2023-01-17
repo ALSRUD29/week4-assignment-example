@@ -9,7 +9,7 @@ const UPDATE_COMMENT = "comments/UPDATE_COMMENT";
 let nextId = 2;
 const createComment = (profile_url, author, content, createdAt) => ({
   type: CREATE_COMMENT,
-  comment: {
+  payload: {
     id: nextId++,
     profile_url,
     author,
@@ -18,7 +18,7 @@ const createComment = (profile_url, author, content, createdAt) => ({
   },
 });
 
-const deleteComment = (id) => ({ type: DELETE_COMMENT, id });
+const deleteComment = (id) => ({ type: DELETE_COMMENT, payload: { id } });
 
 const updateComment = (id, newContent) => ({
   type: UPDATE_COMMENT,
@@ -58,10 +58,16 @@ const initialState = {
 const commentReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_COMMENT:
-      return state.concat(action.comment);
+      return { ...state, comments: state.comments.concat(action.payload) };
 
     case DELETE_COMMENT:
-      return [...state.filter((comment) => comment.id !== action.id)];
+      //return [...state.filter((comment) => comment.id !== action.id)];
+      return {
+        ...state,
+        comments: state.comments.filter(
+          (comment) => comment.id !== action.payload.id
+        ),
+      };
 
     case UPDATE_COMMENT:
       return {
