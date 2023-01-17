@@ -1,13 +1,6 @@
 {
   "comments": [
     {
-      "id": 1,
-      "profile_url": "https://picsum.photos/id/1/50/50",
-      "author": "abc_1",
-      "content": "UI 테스트는 어떻게 진행하나요",
-      "createdAt": "2022-03-01"
-    },
-    {
       "id": 2,
       "profile_url": "https://picsum.photos/id/2/50/50",
       "author": "abc_2",
@@ -20,27 +13,6 @@
       "author": "abc_3",
       "content": "코드에러가 발생했는데 어딘지 모르겠어요",
       "createdAt": "2022-03-03"
-    },
-    {
-      "profileUrl": "d",
-      "author": "d",
-      "content": "d",
-      "createdAt": "d",
-      "id": 4
-    },
-    {
-      "profileUrl": "aa",
-      "author": "aa",
-      "content": "aa",
-      "createdAt": "aa",
-      "id": 5
-    },
-    {
-      "profile_url": "11",
-      "author": "11",
-      "content": "11",
-      "createdAt": "11",
-      "id": 6
     }
   ]
 }

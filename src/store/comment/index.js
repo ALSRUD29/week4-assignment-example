@@ -62,13 +62,15 @@ const commentReducer = (state = initialState, action) => {
       });
 
     case DELETE_COMMENT:
-      //return [...state.filter((comment) => comment.id !== action.id)];
-      return {
-        ...state,
-        comments: state.comments.filter(
-          (comment) => comment.id !== action.payload.id
-        ),
-      };
+      // return {
+      //   ...state,
+      //   comments: state.comments.filter(
+      //     (comment) => comment.id !== action.payload.id
+      //   ),
+      // };
+      return axios.delete(
+        `http://localhost:4000/comments/${action.payload.id}`
+      );
 
     case UPDATE_COMMENT:
       return {
