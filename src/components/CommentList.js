@@ -8,30 +8,37 @@ import Pagination from "./Pagination";
 function CommentList() {
   //const comments = useSelector((store) => store.comment);
 
-  const [limit, setLimit] = useState(4);
+  const limit = 4;
   const [page, setPage] = useState(1);
-  const offset = (page - 1) * limit;
 
   const [data, setData] = useState([]);
+  const [length, setLength] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:4000/comments?_page=${page}&_limit=${limit}&_order=desc&_sort=id`
+      )
+      .then((res) => {
+        // console.log(res.data);
+        setData(res.data);
+      });
+  }, [data, limit, page]);
+
   useEffect(() => {
     axios.get(`http://localhost:4000/comments`).then((res) => {
       // console.log(res.data);
-      setData(res.data);
+      setLength(res.data.length);
     });
-  }, [data]);
+  }, []);
 
   return (
     <>
-      {data.slice(offset, offset + limit).map((comment) => (
+      {data.map((comment) => (
         <Comment comment={comment} key={comment.id} />
       ))}
 
-      <Pagination
-        total={data.length}
-        limit={limit}
-        page={page}
-        setPage={setPage}
-      />
+      <Pagination length={length} limit={limit} page={page} setPage={setPage} />
     </>
   );
 }

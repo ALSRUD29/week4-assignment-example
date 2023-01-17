@@ -134,39 +134,18 @@
       "createdAt": "2022-03-19"
     },
     {
-      "id": 20,
-      "profile_url": "https://picsum.photos/id/20/50/50",
-      "author": "abc_20",
-      "content": "Form 처리는 어떻게 하면 깔끔할까요",
-      "createdAt": "2022-03-20"
+      "profile_url": "https://picsum.photos/id/3/50/50",
+      "author": "안녕나야",
+      "content": "수정할게",
+      "createdAt": "2023-01-16",
+      "id": 21
     },
     {
-      "id": 21,
-      "profile_url": "https://picsum.photos/id/21/50/50",
-      "author": "abc_21",
-      "content": "typescript도 배워 보려고 합니다. 어떻게 배우는게 빠를까요",
-      "createdAt": "2022-03-21"
-    },
-    {
-      "id": 22,
-      "profile_url": "https://picsum.photos/id/22/50/50",
-      "author": "abc_22",
-      "content": "수정",
-      "createdAt": "2022-03-22"
-    },
-    {
-      "profile_url": "하이",
-      "author": "하이",
-      "content": "하이11",
-      "createdAt": "하이",
-      "id": 23
-    },
-    {
-      "profile_url": "d",
-      "author": "d",
-      "content": "d",
-      "createdAt": "d",
-      "id": 24
+      "profile_url": "https://picsum.photos/id/2/50/50",
+      "author": "작성자",
+      "content": "작성 뒤 1페이지로 이동",
+      "createdAt": "2023-01-18",
+      "id": 22
     }
   ]
 }
