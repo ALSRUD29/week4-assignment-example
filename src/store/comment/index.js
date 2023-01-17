@@ -73,14 +73,20 @@ const commentReducer = (state = initialState, action) => {
       );
 
     case UPDATE_COMMENT:
-      return {
-        ...state,
-        comments: state.comments.map((item) =>
-          item.id === action.payload.id
-            ? { ...item, content: action.payload.content }
-            : item
-        ),
-      };
+      // return {
+      //   ...state,
+      //   comments: state.comments.map((item) =>
+      //     item.id === action.payload.id
+      //       ? { ...item, content: action.payload.content }
+      //       : item
+      //   ),
+      // };
+      return axios.patch(
+        `http://localhost:4000/comments/${action.payload.id}`,
+        {
+          ...action.payload,
+        }
+      );
     default:
       return state;
   }
