@@ -1,18 +1,18 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 // 임시 데이터 입니다. 코드 작성시 data 부분을 지워주세요
-const data = [
-  {
-    id: 1,
-    profile_url: "https://picsum.photos/id/1/50/50",
-    author: "abc_1",
-    content: "UI 테스트는 어떻게 진행하나요",
-    createdAt: "2020-05-01",
-  },
-];
 
 function CommentList() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get(`http://localhost:4000/comments`).then((res) => {
+      console.log(res.data);
+      setData(res.data);
+    });
+  }, []);
+
   return data.map((comment, key) => (
     <Comment key={key}>
       <img src={comment.profile_url} alt="" />
